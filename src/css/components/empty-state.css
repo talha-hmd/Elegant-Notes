@@ -1,0 +1,23 @@
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.6;
+    display: none;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #999;
+    margin-bottom: 20px;
+}
