@@ -1,9 +1,29 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-AOS.init();
-
-
 document.addEventListener("DOMContentLoaded", function () {
+
+
+    // cursor functionality
+    const cursorDot = document.querySelector("[data-cursor-dot]");
+    const cursorOutline = document.querySelector("[data-cursor-outline]");
+
+    window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorOutline.style.left = `${posX}px`;
+        cursorOutline.style.top = `${posY}px`;
+
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`,
+        }, {
+            duration: 500,
+            fill: "forwards",
+        });
+    });
+
+
     const notesContainer = document.getElementById("notesContainer");
     const addNoteBtn = document.getElementById("addNoteBtn");
     const addNoteModal = document.getElementById("addNoteModal");
@@ -37,28 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     filterSelect.addEventListener("change", filterNotes);
     cancelDeleteBtn.addEventListener("click", closeConfirmModal);
     confirmDeleteBtn.addEventListener("click", confirmDeleteNote);
-
-    // cursor functionality
-    const cursorDot = document.querySelector("[data-cursor-dot]");
-    const cursorOutline = document.querySelector("[data-cursor-outline]");
-
-    window.addEventListener("mousemove", (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-        cursorOutline.style.left = `${posX}px`;
-        cursorOutline.style.top = `${posY}px`;
-
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`,
-        }, {
-            duration: 500,
-            fill: "forwards",
-        });
-    });
 
 
     function renderNotes(notesToRender = notes) {
