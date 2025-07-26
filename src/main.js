@@ -1,3 +1,11 @@
+const AOS = window.AOS;
+AOS.init({
+    duration: 1200,
+    once: true,
+    easing: 'ease-out'
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
 
